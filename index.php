@@ -6,14 +6,17 @@ $complete_url = $_SERVER['REQUEST_SCHEME'].'://'. $_SERVER['HTTP_HOST']. $_SERVE
 $parser = new \Riimu\Kit\UrlParser\UriParser();
 $uri = $parser->parse($complete_url);
 $path = $uri->getPathSegments();
-if(count($path) != 3){
+if(count($path) == 3){
+    $control = '\Joql\\'.ucwords(strtolower($path[1]));
+    $action = ucwords(strtolower($path[2]));
+}elseif (count($path) == 2){
+    $control = '\Joql\\'.ucwords(strtolower($path[0]));
+    $action = ucwords(strtolower($path[1]));
+}else{
     die('fail');
 }
 
-
-$control = '\Joql\\'.ucwords(strtolower($path[1]));
-$action = ucwords(strtolower($path[2]));
-
+//body
 try{
     $api = new $control();
     $api->$action();

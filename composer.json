@@ -1,9 +1,9 @@
 {
     "name": "root/0409.cc",
     "require": {
-        "thingengineer/mysqli-database-class": "dev-master",
         "topthink/think-validate": "^1.0",
         "topthink/think-template": "^2.0",
-        "topthink/think-orm": "^2.0"
+        "topthink/think-orm": "^2.0",
+        "riimu/kit-urlparser": "^2.1"
     }
 }

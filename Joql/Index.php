@@ -11,30 +11,16 @@ namespace Joql;
 use think\Db;
 use think\Validate;
 
-class Api extends Base
+class Index extends Base
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->getWebConf();
     }
 
-    /**
-     * use for:获取系统配置
-     * auth: Joql
-     * @return array|bool
-     * date:2019-04-23 21:30
-     */
-    public function getWebConf(){
-
-        $this->templage->assign([
-            'web_config' => $web_config = Db::name('system')->where('id','1')->find()
-        ]);
-    }
-
-    public function index_index(){
-        $this->templage->fetch('index');
+    public function index(){
+        $this->templage->fetch('index/index');
     }
     public function checkKey(){
         $data = $_POST;

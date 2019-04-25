@@ -22,16 +22,10 @@ class Base
         $this->ROOT = dirname(dirname(__FILE__));
         $conf = include_once $this->ROOT . '/conf/config.php';
         $db_conf = include_once $this->ROOT . '/conf/database.php';
-//        $this->db = new \MysqliDb([
-//            'host' => $conf['host'],
-//            'username' => $conf['username'],
-//            'password' => $conf['password'],
-//            'db'=> $conf['db'],
-//            'port' => $conf['port'],
-//            'prefix' => $conf['prefix'],
-//            'charset' => $conf['charset'],
-//        ]);
+
+        //初始化数据库配置
         Db::setConfig($db_conf);
+        //初始化模板
         $template_conf = [
             'view_path'     =>  $this->ROOT .'/'. $conf['view_path'],
             'cache_path'    =>  $this->ROOT .'/'. $conf['cache_path'],

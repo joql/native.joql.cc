@@ -7,8 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInit5e08ab620d63b63783f93877ba2af648
 {
     public static $files = array (
-        '71ecd0286a4e74fd8732297fb587023c' => __DIR__ . '/..' . '/thingengineer/mysqli-database-class/MysqliDb.php',
-        'd383f1ec7b1e54a09cb53eb6fcf751e0' => __DIR__ . '/..' . '/thingengineer/mysqli-database-class/dbObject.php',
         '33197a0023ced5fbf8f861d1c4ca048d' => __DIR__ . '/..' . '/topthink/think-orm/src/config.php',
     );
 
@@ -17,9 +15,14 @@ class ComposerStaticInit5e08ab620d63b63783f93877ba2af648
         array (
             'think\\' => 6,
         ),
+        'R' => 
+        array (
+            'Riimu\\Kit\\UrlParser\\' => 20,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Cache\\' => 10,
         ),
     );
@@ -31,9 +34,17 @@ class ComposerStaticInit5e08ab620d63b63783f93877ba2af648
             1 => __DIR__ . '/..' . '/topthink/think-template/src',
             2 => __DIR__ . '/..' . '/topthink/think-validate/src',
         ),
+        'Riimu\\Kit\\UrlParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/riimu/kit-urlparser/src',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Cache\\' => 
         array (

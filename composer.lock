@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a84e29f0107b4900c3ec1d62454ff36e",
+    "content-hash": "7f2d1076a1d89de45cb119e2faace0bd",
     "packages": [
         {
             "name": "psr/cache",
@@ -51,6 +51,56 @@
                 "psr-6"
             ],
             "time": "2016-08-06T20:24:11+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -101,49 +151,58 @@
             "time": "2017-10-23T01:57:42+00:00"
         },
         {
-            "name": "thingengineer/mysqli-database-class",
-            "version": "dev-master",
+            "name": "riimu/kit-urlparser",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ThingEngineer/PHP-MySQLi-Database-Class.git",
-                "reference": "810ffe981519f04bdf4ff734bd43cf0be3c15757"
+                "url": "https://github.com/Riimu/Kit-UrlParser.git",
+                "reference": "dbbf53eb38ddb754bd08b5dd0c1a588cd884caef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThingEngineer/PHP-MySQLi-Database-Class/zipball/810ffe981519f04bdf4ff734bd43cf0be3c15757",
-                "reference": "810ffe981519f04bdf4ff734bd43cf0be3c15757",
+                "url": "https://api.github.com/repos/Riimu/Kit-UrlParser/zipball/dbbf53eb38ddb754bd08b5dd0c1a588cd884caef",
+                "reference": "dbbf53eb38ddb754bd08b5dd0c1a588cd884caef",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.6.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "phpunit/phpunit": "^5.7 || ^6.2",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "suggest": {
+                "ext-intl": "Required to parse URIs with IDNs"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "MysqliDb.php",
-                    "dbObject.php"
-                ]
+                "psr-4": {
+                    "Riimu\\Kit\\UrlParser\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Alexander V. Butenko",
-                    "email": "a.butenka@gmail.com",
-                    "homepage": "http://smarttechdo.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Josh Campbell",
-                    "email": "josh.lee.campbell@gmail.com",
-                    "homepage": "https://github.com/thingengineer",
-                    "role": "Developer"
+                    "name": "Riikka Kalliomäki",
+                    "email": "riikka.kalliomaki@gmail.com",
+                    "homepage": "http://riimu.net"
                 }
             ],
-            "description": "PHP MySQL Wrapper and object mapper which utilizes MySQLi and prepared statements",
-            "time": "2019-03-13T18:38:23+00:00"
+            "description": "RFC 3986 compliant url parsing library with PSR-7 Uri component",
+            "homepage": "http://kit.riimu.net",
+            "keywords": [
+                "parser",
+                "psr-7",
+                "rfc3986",
+                "uri",
+                "url"
+            ],
+            "time": "2017-06-30T16:49:34+00:00"
         },
         {
             "name": "topthink/think-orm",
@@ -267,9 +326,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "thingengineer/mysqli-database-class": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

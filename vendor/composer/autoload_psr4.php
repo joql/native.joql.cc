@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'think\\' => array($vendorDir . '/topthink/think-orm/src', $vendorDir . '/topthink/think-template/src', $vendorDir . '/topthink/think-validate/src'),
+    'Riimu\\Kit\\UrlParser\\' => array($vendorDir . '/riimu/kit-urlparser/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
 );

@@ -1,16 +1,23 @@
 <?php
-use Joql\Api;
+
 require_once 'init.php';
 
-$api = new Api();
-$act = $_GET['act'];//action
-switch ($act){
-    case 'checkKey':
-        return $api->checkKey();
+$complete_url = $_SERVER['REQUEST_SCHEME'].'://'. $_SERVER['HTTP_HOST']. $_SERVER['REQUEST_URI'];
+$parser = new \Riimu\Kit\UrlParser\UriParser();
+$uri = $parser->parse($complete_url);
+$path = $uri->getPathSegments();
+if(count($path) != 3){
+    die('fail');
 }
 
-//body
-$api->index_index();
 
+$control = '\Joql\\'.ucwords(strtolower($path[1]));
+$action = ucwords(strtolower($path[2]));
 
+try{
+    $api = new $control();
+    $api->$action();
+}catch (Exception $e){
+    die($e->getMessage());
+}
 ?>

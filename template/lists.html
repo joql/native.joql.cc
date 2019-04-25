@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$web_config['name']}</title>
+    <meta name="keywords" content="{$web_config['key']}">
+    <meta name="description" content="{$web_config['des']}">
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.9.1.min.js">
+    </script>
+    <script language="javascript">
+        {if condition="!empty($web_config['notice'])"}
+        alert("{$web_config['notice']}")
+        {/if}
+    </script>
+</head>
+
+<body id="bg_inf">
+<div class="container">
+    <div class="row">
+        <div class="one1">
+            <h1>
+                <img src="/static/images/log.png">
+            </h1>
+            <div class="show_listt">
+                <dl>
+                    <dt>
+                        <img src="/static/images/one1.png">
+                    </dt>
+                    <dd>
+                        当前卡密
+                        <br>
+                        <em>
+                            {$key['key']}
+                        </em>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/images/one2.png">
+                    </dt>
+                    <dd>
+                        剩余天数
+                        <br>
+                        <em>
+                            {$last_time}
+                        </em>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/images/one3.png">
+                    </dt>
+                    <dd>
+                        最大刷房数量
+                        <br>
+                        <em>
+                            {$key['num']}
+                        </em>
+                    </dd>
+                </dl>
+            </div>
+            <!--表格-->
+            {if condition="!empty($order)"}
+            <div class="bg_list">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            登录账号 / 交互密码
+                        </th>
+                        <th>
+                            挂号密码
+                        </th>
+                        <th>
+                            HelloId
+                        </th>
+                        <th>
+                            登陆方式
+                        </th>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            到期时间
+                        </th>
+                        <th>
+                            更新时间
+                        </th>
+                        <th>
+                            状态
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="order" item="v"}
+                    <tr>
+                        <td>
+                            {$v['detail']['user']}
+                        </td>
+                        <td>
+                            {$v['detail']['pass']}
+                        </td>
+                        <td>
+                            {$v['detail']['helloid']|default='正在获取'}
+                        </td>
+                        <td>
+                            {if condition="$v['detail']['type'] eq 1"}
+                            YY登陆
+                            {else/}
+                            手机登录
+                            {/if}
+                        </td>
+                        <td>
+                            {$v['detail']['create_time']}
+                        </td>
+                        <td>
+                            {$v['detail']['end_time']}
+                        </td>
+                        <td>
+                            {$v['detail']['update_time']}
+                        </td>
+                        <td>
+                            {$v['detail']['info']|default='正在获取'}
+                        </td>
+                        <!--<td>
+                            {if condition="$v['detail']['status'] eq 1"}
+                                正在执行
+                            {elseif condition="$v['detail']['status'] eq 2"}
+                                已完成
+                            {elseif condition="$v['detail']['status'] eq -3"}
+                                已删除
+                            {elseif condition="$v['state'] eq 0"}
+                                等待执行
+                            {else/}
+                                出错
+                            {/if}
+                        </td>-->
+                        <td>
+                            <a data-toggle="modal" data-target="#myModal" onclick="edit({$v['id']})">
+                                修改
+                            </a>
+                            {if condition="$v['state'] eq 5"}
+                            <a href="#" onclick="status({$v['id']}, 1)">
+                                上线
+                            </a>
+                            {elseif condition="$v['state'] eq 1"}
+                            <a href="#" onclick="status({$v['id']}, 5)">
+                                下线
+                            </a>
+                            {else/}
+                            {/if}
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+            {/if}
+            <div class="dl_tj2">
+                <dl>
+                    <dt>
+                        <button type="submit" class=" btn-default12" id="logoOut">
+                            退出登录
+                        </button>
+                    </dt>
+                    <dd>
+                        <button class="btn-default13" data-toggle="modal" id="btn_add" data-target="#myModal">
+                            添加账号
+                        </button>
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div style=" height:20px">
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" style="background:url(/static/images/tcbg.png)">
+        <div style=" padding-top:2%">
+        </div>
+        <div class="modal-content" style="width:96%; text-align:center; margin:auto; background:#fff;">
+            <div class="modal-header">
+                <div>
+                    <form class="form-horizontal" id="form-save" role="form" style="width:94%; text-align:center; margin:auto; padding-top:7% ;padding-bottom:7% ;">
+                        <div class="form-group">
+                            <label for="account" class="col-sm-3 col-xs-12 control-label">
+                                刷房账号
+                            </label>
+                            <div class="col-sm-9 col-xs-12">
+                                <input type="text" class="form-control" id="account" name="account">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd" class="col-sm-3  col-xs-12 control-label">
+                                刷房密码
+                            </label>
+                            <div class="col-sm-9  col-xs-12">
+                                <input type="text" class="form-control" id="pwd" name="pwd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3  col-xs-12 control-label">
+                            </label>
+                            <div class="col-sm-9  col-xs-12" style="text-align:left">
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="login_type"  value="1" checked style="background:#385ec4">
+                                    <i class="spot">
+                                    </i>
+                                    手机登录
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="radio" name="login_type" value="2">
+                                    <i class="spot">
+                                    </i>
+                                    Y Y 登录
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="answer-1" class="col-sm-3  col-xs-12 control-label">
+                                问题1答案
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="answer-1" id="answer-1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="answer-2" class="col-sm-3  col-xs-12 control-label">
+                                问题2答案
+                            </label>
+                            <div class="col-sm-9  col-xs-12">
+                                <input type="text" class="form-control" name="answer-2" id="answer-2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="answer-3" class="col-sm-3  col-xs-12 control-label">
+                                问题3答案
+                            </label>
+                            <div class="col-sm-9  col-xs-12">
+                                <input type="text" class="form-control" name="answer-3" id="answer-3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-3  col-xs-12 control-label">
+                            </label>
+                            <div class="col-sm-9  col-xs-12" style="text-align:left">
+                                <input type="hidden" name="id">
+                                <button type="button" class="btn btn-primary" id="btn_save">
+                                    添加
+                                </button>
+                                <button type="button" class="btn btn-defaulth" data-dismiss="modal">
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div style=" padding-bottom:2%">
+        </div>
+    </div>
+</div>
+<script src="/static/js/bootstrap.min.js">
+</script>
+<script>
+    $('#logoOut').click(function () {
+        $.ajax({
+            url:"lists.php?act=logoOut",
+            type:"post",
+            data:{},
+            dataType:"json",
+            success:function(data){
+                location.href = "";
+            },
+            error:function(xmlHttpRequest,textStatus,errorThrown){
+                console.log(textStatus+"出错！"+errorThrown);
+            }
+        });
+
+    });
+
+    $('#btn_add').click(function () {
+        $("#myModal input[name='id']").val(0);
+        $('#account').val('');
+        $('#pwd').val('');
+        $('#answer-1').val('');
+        $('#answer-2').val('');
+        $('#answer-3').val('');
+        $("#btn_save").text('添加');
+//        $('#myModal').addClass('in');
+//        $('#myModal').show();
+    });
+
+    $('#btn_save').click(function () {
+        $.ajax({
+            url:"lists.php?act=save",
+            type:"post",
+            data: $("#form-save").serialize(),
+            dataType:"json",
+            success:function(data){
+                if(data.code == 1){
+                    location.reload();
+                }
+                alert(data.msg);
+            },
+            error:function(xmlHttpRequest,textStatus,errorThrown){
+                console.log(textStatus+"出错！"+errorThrown);
+            }
+        });
+    });
+
+    function edit(id) {
+        $("#myModal input[name='id']").val(id);
+        $("#btn_save").text('保存');
+        $.ajax({
+            url:"lists.php?act=orderInfo",
+            type:"post",
+            data: {id:id},
+            dataType:"json",
+            success:function(data){
+                if(data.code == 1){
+                    $('#account').val(data.data.account);
+                    $('#pwd').val(data.data.pwd);
+                    $("input[name=login_type][value='"+data.data.login_type+"']").attr("checked",'checked');
+                    $('#answer-1').val(data.data.answer_1);
+                    $('#answer-2').val(data.data.answer_2);
+                    $('#answer-3').val(data.data.answer_3);
+                }
+            },
+            error:function(xmlHttpRequest,textStatus,errorThrown){
+                console.log(textStatus+"出错！"+errorThrown);
+            }
+        });
+    }
+
+    function status(id , s) {
+        $.ajax({
+            url:"lists.php?act=orderStatus",
+            type:"post",
+            data: {id:id,s:s},
+            dataType:"json",
+            success:function(data){
+                location.reload();
+            },
+            error:function(xmlHttpRequest,textStatus,errorThrown){
+                console.log(textStatus+"出错！"+errorThrown);
+            }
+        });
+    }
+
+    setInterval(function () {
+        $.ajax({
+            url:"lists.php?act=updateStatus",
+            type:"post",
+            data: {},
+            dataType:"json",
+            success:function(data){
+                if(data.code == 1){
+                    location.reload();
+                }
+            },
+            error:function(xmlHttpRequest,textStatus,errorThrown){
+                console.log(textStatus+"出错！"+errorThrown);
+            }
+        });
+    }, 10000)
+</script>
+</body>
+
+</html>

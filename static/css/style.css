@@ -1,0 +1,130 @@
+body{ background: url(../images/bg.jpg)   center top no-repeat; }
+.login{ width:40%; text-align:center; margin:auto; padding-top:15%; overflow:hidden}
+.login h5{ width:100%;}
+.login p{width:100%; text-align:center; color:#fff; font-size:18px; line-height:40px;}
+.login dl{width:100%; padding-top:8%; overflow:hidden; clear:both}
+.login dl dd{ padding-bottom:4%; text-align:left}
+.form-control1{ width:100%; background:#2900A6 url(../images/dl.png) 25px 10px no-repeat; height:55px; line-height:55px; border-radius:30px; border:none; color:#FFF; padding-left:70px}
+.form-control2{ width:100%; background:#2900A6 url(../images/dl1.png) 25px 10px no-repeat; height:55px; line-height:55px; border-radius:30px; border:none; color:#FFF; padding-left:70px}
+.login dl dd a{ color:#fff; font-size:16px}
+.login dl dd a:hover{ color:#fff}
+.login dl dd em{ font-style:normal; float:right; padding-right:15px;}
+
+.btn-default{ width:100%; color:#fff; font-size:18px;
+background-image:-webkit-linear-gradient(to left, #7526c8, #5830b6); 
+background-image:linear-gradient(to left, #7526c8, #5830b6); height:55px; line-height:45px; border:1px solid #fff; border-radius:30px; margin-top:3%}
+.btn-default:hover{color:#fff;}
+
+.form-control3{ width:100%; background:#777EF3; height:55px; line-height:55px; border-radius:10px; font-size:16px; text-align:left; padding-left:15px;  color:#FFF;  border:1px solid #100058; }
+.one{ width:100%; padding-top:40px;}
+.one h1{ width:100%}
+.one1{ width:100%; padding-top:0px;}
+.one1 h1{ width:100%}
+
+.show_list{ width:80%; text-align:center; margin:auto; padding-top:12%;}
+.show_list dl{ width:33.33%; float:left}
+.show_list dl dt{ width:100%}
+.show_list dl dd{ width:100%; font-size:20px; color:#fff; line-height:35px; padding-top:10%}
+.show_list dl dd em{font-style:normal; color:#33e2f6}
+.show_listt{ width:80%; text-align:center; margin:auto; padding-top:9%; overflow:hidden}
+.show_listt dl{ width:33.33%; float:left}
+.show_listt dl dt{ width:100%}
+.show_listt dl dt img{ width:126px; height:126px}
+.show_listt dl dd{ width:100%; font-size:20px; color:#fff; line-height:35px; padding-top:10%}
+.show_listt dl dd em{font-style:normal; color:#33e2f6}
+
+.dl_tj{ width:40%; text-align:center; margin:auto; padding-top:38%;}
+.dl_tj dl{ width:100%}
+.dl_tj dl dt{ width:48%; float:left}
+.dl_tj dl dd{ width:48%; float:right}
+
+.dl_tj2{ width:40%; text-align:center; margin:auto; padding-top:18%;}
+.dl_tj2 dl{ width:100%}
+.dl_tj2 dl dt{ width:48%; float:left}
+.dl_tj2 dl dd{ width:48%; float:right}
+
+.btn-default12{ border:1px solid #fff; background:none; color:#fff; font-size:18px; height:50px; line-height:38px; background:url(../images/tc.png) 30% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+.btn-default12:hover{ color:#fff;border:1px solid #fff; background:none; color:#fff; font-size:18px; height:50px; line-height:38px; background:url(../images/tc.png) 30% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+.btn-default13{ border:1px solid #fff; background:none; color:#fff; font-size:18px; height:50px; line-height:30px; background:url(../images/tj.png) 30% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+.btn-default13:hover{ color:#fff; }
+.control-label{ color:#385ec4; font-weight:normal; text-align:left; font-size:16px;}
+.form-control{ border:1px solid #3F56E4; height:50px; line-height:40px; background:#F6F6FF}
+.radio-inline{color:#385ec4; font-weight:normal;  font-size:16px;}
+.form-group{ padding-bottom:2%}
+.modal-footer1{ text-align:left}
+.btn-primary{ background:#2900A6; width:40%; height:46px;  color:#fff ; font-size:16px;}
+.btn-defaulth{ background:#dee1ff; width:40%; height:46px;  color:#385ec4 ; font-size:16px;}
+
+.radio-inline{position: relative;display:inline-block;}
+.spot{
+        display:inline-block;
+        width:18px;
+        height:18px;
+        background:url(../images/dd.jpg) no-repeat;  /*默认的样式图片*/
+        background-size:16px;
+        position: absolute;
+        top:.9rem;
+        left:1.4rem;
+        z-index:5;
+    }
+    input:checked + .spot{
+        background:url(../images/dd2.jpg) no-repeat;  /*选中后的样式图片*/
+        background-size:16px;
+    }
+	
+.bg_list{padding-top:30px; overflow:hidden}
+.table{ background:#2900A6; border:1px solid #140055; }
+.table th{ text-align:center; color:#fff; height:50px; line-height:50px; border-right:1px solid #140055; font-weight:0; font-size:14px; border-bottom:1px solid #140055}
+.table th:last-child{ border-right:none;}	
+.table td{ text-align:center; color:#fff; height:50px; line-height:50px; border-right:1px solid #140055; font-weight:0; font-size:14px; }	
+.table td:last-child{ border-right:none;}	
+.table td a{ border:1px solid #fff; padding:3px 8px; border-radius:30px; color:#fff; margin-right:5px; }
+	
+
+@media (max-width: 768px){
+.btn-default12{ border:1px solid #fff; background:none; color:#fff; font-size:16px; height:50px; line-height:38px; background:url(../images/tc.png) 22% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+.btn-default12:hover{ border:1px solid #fff; background:none; color:#fff; font-size:16px; height:50px; line-height:38px; background:url(../images/tc.png) 25% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+
+.btn-default13{ border:1px solid #fff; background:none; color:#fff; font-size:16px; height:50px; line-height:30px; background:url(../images/tj.png) 22% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+
+	}
+@media (max-width:480px){
+	html,body{ background: url(../images/bj.jpg) center 0 no-repeat; background-repeat:no-repeat ;
+background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed; width:100%; height:100%;
+                  }
+
+	.form-group{ padding-bottom:0%}
+	.login{ width:90%; text-align:center; margin:auto; padding-top:25%; overflow:hidden}
+    .login h5 img{ width:70%;}
+    .login p{font-size:16px; line-height:20px}
+	
+	.one h1 img{ width:60%; text-align:center; margin:auto; display:block }
+	.one1 h1 img{ width:60%;text-align:center; margin:auto; display:block }
+	.show_list{ width:96%; text-align:center; margin:auto; padding-top:8%;}
+
+	.show_list dl dt img{ width:50%}
+.show_list dl dd{ width:100%; font-size:15px; color:#fff; line-height:30px; padding-top:10%}
+.show_listt{ width:96%; text-align:center; margin:auto; padding-top:8%;}
+
+	.show_listt dl dt img{ width:50%; height:100%;}
+.show_listt dl dd{ width:100%; font-size:15px; color:#fff; line-height:30px; padding-top:10%}
+.dl_tj{ width:85%; text-align:center; margin:auto; padding-top:68%;}
+.dl_tj2{ width:85%; text-align:center; margin:auto; padding-top:2%; padding-bottom:10%}
+
+.btn-default12{ border:1px solid #fff; background:none; color:#fff; font-size:16px; height:50px; line-height:38px; background:url(../images/tc.png) 22% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+.btn-default12:hover{ border:1px solid #fff; background:none; color:#fff; font-size:16px; height:50px; line-height:38px; background:url(../images/tc.png) 25% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+
+.btn-default13{ border:1px solid #fff; background:none; color:#fff; font-size:16px; height:50px; line-height:30px; background:url(../images/tj.png) 22% 10px no-repeat; text-align:left; padding-left:42%; width:100%; border-radius:30px}
+.bg_list{padding-top:10px; overflow:hidden; width:96%; text-align:center; margin:auto}
+
+.table th{ text-align:center; color:#fff; height:40px; line-height:40px; border-right:1px solid #140055; font-weight:0; font-size:14px; border-bottom:1px solid #140055; width:100%; float:left }
+.table th:last-child{ border-right:1px solid #140055;}
+.table thead{ width:30%; float:left}
+.table tbody{ width:70%; float:right}	
+.table td{ text-align:center; color:#fff; height:40px; line-height:40px; border-right:1px solid #140055;border-bottom:1px solid #140055; font-weight:0; font-size:14px; width:100%; width:100%; float:left }	
+.table td:last-child{border-right:1px solid #140055;}	
+.table td a{ border:1px solid #fff; padding:3px 8px; border-radius:30px; color:#fff; margin-right:5px; }
+
+	}

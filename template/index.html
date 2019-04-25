@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>{$web_config['name']}</title>
+    <meta name="keywords" content="{$web_config['key']}">
+    <meta name="description" content="{$web_config['des']}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8"/>
+    <link href="/static/css/index.css" rel="stylesheet"
+          type="text/css"
+          media="all">
+    <link href="/static/css/font-awesome.css" rel="stylesheet"
+          type="text/css"
+          media="all">
+    <link href="/static/css/font-awesome.min.css"
+          rel="stylesheet"
+          type="text/css" media="all">
+</head>
+
+<body>
+<h1>
+            <span>
+                H
+            </span>
+    ello
+    <span>
+                刷
+            </span>
+    房
+</h1>
+<div class="main-agileinfo">
+    <h6>
+        欢迎使用hello刷房网页版
+    </h6>
+    <br>
+    <br/>
+    <h6>
+        任何问题可以联系运营
+    </h6>
+    <br>
+    <br/>
+    <form action="#" method="post">
+        <div class="form-mail">
+                    <span class="fa fa-book" aria-hidden="true">
+                    </span>
+            <input type="text" name="text" placeholder="输入卡密..."
+                   id="key" required="">
+        </div>
+        <br>
+        <br/>
+        <input type="button" id="check" value="登陆">
+    </form>
+</div>
+</body>
+<script src="/static/js/jquery-1.9.1.min.js"></script>
+<script>
+    $('#check').click(function () {
+        $.ajax({
+            url:"index.php?act=checkKey",
+            type:"post",
+            data:{
+                'key' : $('#key').val()
+            },
+            dataType:"json",
+            success:function(data){
+                if(data.code == 1){
+                    location.href = "lists.php"
+                }
+                alert(data.msg);
+            },
+            error:function(xmlHttpRequest,textStatus,errorThrown){
+                console.log(textStatus+"出错！"+errorThrown);
+            }
+        });
+    });
+
+</script>
+</html>
